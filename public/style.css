@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width:600px
+}
+#transaction-form input,
+#transaction-form select,
+#transaction-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#transaction-form button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#transaction-form button:hover {
+  background-color: #574fd6;
+}
+#transaction-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#transaction-list li button {
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#transaction-list li button:hover {
+  background-color: #e04545;
+}
+
+#budget-form{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+#budget-form select,
+#budget-form input{
+  flex:1;
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#budget-form button{
+  background-color:#6c63ff;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:5px;
+  cursor:pointer;
+}
+#budget-status p{
+  margin:5px 0 2px 0;
+  font-size:14px;
+}
+#auth-section{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+#auth-section input{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#auth-section button{
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  background-color:#6c63ff;
+  color:white;
+  cursor:pointer;
+}
+#logout-btn{
+  background-color:#ff5c5c;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-bottom:15px;
+}
