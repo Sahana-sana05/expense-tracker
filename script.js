@@ -14,7 +14,7 @@ signupBtn.addEventListener('click',function(){
   const email=document.getElementById('auth-email').value;
   const password=document.getElementById('auth-password').value;
 
-  fetch('http://localhost:3000/signup',{
+  fetch("https://expense-tracker-backend-qwra.onrender.com/signup", {
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({email:email,password:password})
@@ -31,7 +31,7 @@ loginBtn.addEventListener('click',function(){
   const email=document.getElementById('auth-email').value;
   const password=document.getElementById('auth-password').value;
 
-  fetch('http://localhost:3000/login',{
+  fetch('https://expense-tracker-backend-qwra.onrender.com/login',{
     method:'POST',
     headers:{ 'Content-Type':'application/json'},
     body: JSON.stringify({email:email,password:password})
@@ -85,7 +85,7 @@ form.addEventListener('submit',function(event){
         category:category
 
     };
-    fetch('http://localhost:3000/transactions',{
+    fetch('https://expense-tracker-backend-qwra.onrender.com/transactions',{
       method:'POST',
       headers:getAuthHeaders(),
       body:JSON.stringify(newTransaction)
@@ -121,7 +121,7 @@ function renderTransactions(transactionsToShow){
     });
 }
 function deleteTransaction(id){
-  fetch('http://localhost:3000/transactions/'+id,{
+  fetch('https://expense-tracker-backend-qwra.onrender.com/transactions/'+id,{
     method: 'DELETE',
     headers:getAuthHeaders()
   })
@@ -163,7 +163,7 @@ function updateSummary() {
 }
 
 function loadTransactions(){
-  fetch('http://localhost:3000/transactions',{
+  fetch('https://expense-tracker-backend-qwra.onrender.com/transactions',{
     headers:getAuthHeaders()
   })
   .then(function(response){
@@ -207,7 +207,7 @@ budgetForm.addEventListener('submit',function(event){
   const budgetCategory=document.getElementById('budget-category').value;
   const budgetLimit=document.getElementById('budget-limit').value;
 
-  fetch('http://localhost:3000/budgets',{
+  fetch('https://expense-tracker-backend-qwra.onrender.com/budgets',{
     method:'POST',
     headers:getAuthHeaders(),
     body:JSON.stringify({category:budgetCategory,limit:budgetLimit})
@@ -255,7 +255,7 @@ function renderChart(){
 }
 
 function loadBudgets(){
-  fetch('http://localhost:3000/budgets',{
+  fetch('https://expense-tracker-backend-qwra.onrender.com/budgets',{
     headers:getAuthHeaders()
   })
   .then(function(response){
@@ -314,5 +314,4 @@ if(savedToken){
   loadTransactions();
   loadBudgets();
 }
-
 
