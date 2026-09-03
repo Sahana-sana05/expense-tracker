@@ -108,6 +108,7 @@ app.post('/budgets',authMiddleware,function(req,res){
         res.json(budget);
     })
     .catch(function(error){
+        console.log("BUDGET ERROR:", error);
         res.status(500).json({error:error.message});
     });
 });
