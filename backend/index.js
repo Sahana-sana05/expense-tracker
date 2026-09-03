@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://expense-tracker-wztl.onrender.com'
+    origin: 'https://expense-tracker-web-yth4.onrender.com'
 }));
 
 const PORT=3000;
