@@ -79,7 +79,7 @@ app.delete('/transactions/:id',authMiddleware,function(req,res){
     });
 });
 
-app.get('/budgets',function(req,res){
+app.get('/budgets',authMiddleware,function(req,res){
     Budget.find({userId:req.userId})
     .then(function(budgets){
         res.json(budgets);
