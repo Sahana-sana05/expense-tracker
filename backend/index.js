@@ -13,11 +13,12 @@ const Budget=require('./Budget');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://expense-tracker-wztl.onrender.com'
+}));
 
 const PORT=3000;
 
-console.log("URI =",process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI)
 .then(function(){
     console.log('MongoDB Atlas connected!');
@@ -34,7 +35,7 @@ app.get('/',function(req,res){
 
 
 app.get('/transactions', authMiddleware, function(req,res){
-    Transaction.find()
+    Transaction.find({userId:req.userId})
     .then(function(transactions){
         res.json(transactions);
     })
@@ -50,8 +51,9 @@ app.post('/transactions',authMiddleware, function(req, res) {
     title: req.body.title,
     amount: req.body.amount,
     type: req.body.type,
-    category:req.body.category
-  });
+    category: req.body.category,
+    userId: req.userId
+});
   newTransaction.save()
   .then(function(savedTransaction){
     res.json(savedTransaction);
@@ -64,7 +66,10 @@ app.post('/transactions',authMiddleware, function(req, res) {
 
 
 app.delete('/transactions/:id',authMiddleware,function(req,res){
-    Transaction.findByIdAndDelete(req.params.id)
+    Transaction.findOneAndDelete({
+        _id:req.params.id,
+        userId:req.userId
+   })
     .then(function(){
         res.json({message:'Transaction deleted'});
 
@@ -75,7 +80,7 @@ app.delete('/transactions/:id',authMiddleware,function(req,res){
 });
 
 app.get('/budgets',function(req,res){
-    Budget.find()
+    Budget.find({userId:req.userId})
     .then(function(budgets){
         res.json(budgets);
     })
@@ -84,11 +89,20 @@ app.get('/budgets',function(req,res){
     });
 });
 
-app.post('/budgets',function(req,res){
+app.post('/budgets',authMiddleware,function(req,res){
     Budget.findOneAndUpdate(
-        {category:req.body.category},
-        {limit:req.body.limit},
-        {upsert:true,new:true}
+        {
+            category:req.body.category,
+            userId:req.userId
+        },
+        {
+            limit:req.body.limit,
+            userId:req.userId
+        },
+        {
+            upsert:true,
+            new:true
+        }
     )
     .then(function(budget){
         res.json(budget);

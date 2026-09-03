@@ -3,10 +3,14 @@ const budgetSchema=new mongoose.Schema({
     category:{
         type:String,
         required:true,
-        unique:true
     },
     limit:{
         type:Number,
+        required:true
+    },
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
         required:true
     }
 });
