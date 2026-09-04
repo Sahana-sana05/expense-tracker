@@ -1,123 +1,1064 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
   margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+  background: #f5f3ff;
+  color: #20202a;
+
+  padding: 24px;
 }
 
 .container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width:600px
-}
-#transaction-form input,
-#transaction-form select,
-#transaction-form button {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 14px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-#transaction-form button {
-  background-color: #6c63ff;
-  color: white;
-  border: none;
-  cursor: pointer;
+
+/* =========================================
+   AUTH
+========================================= */
+
+#auth-section {
+  width: 100%;
+  max-width: 420px;
+
+  margin: 8vh auto 0;
+
+  background: #ffffff;
+
+  padding: 32px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 12px 35px rgba(45, 35, 90, 0.10);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-icon {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #6c63ff;
+  color: #ffffff;
+
+  font-size: 25px;
   font-weight: bold;
 }
 
-#transaction-form button:hover {
-  background-color: #574fd6;
+#auth-section h2 {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 27px;
 }
+
+.auth-subtitle {
+  margin: 0 0 14px;
+
+  text-align: center;
+
+  color: #77758a;
+
+  font-size: 14px;
+}
+
+#auth-section label {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #464452;
+}
+
+#auth-section input {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dedde7;
+  border-radius: 11px;
+
+  background: #fafaff;
+
+  outline: none;
+
+  font-size: 14px;
+}
+
+#auth-section input:focus {
+  border-color: #6c63ff;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 99, 255, 0.10);
+}
+
+#auth-section button {
+  width: 100%;
+  height: 46px;
+
+  border-radius: 11px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+#login-btn {
+  margin-top: 8px;
+
+  background: #6c63ff;
+  color: #ffffff;
+
+  border: none;
+}
+
+#login-btn:hover {
+  background: #574fd6;
+}
+
+#signup-btn {
+  background: #ffffff;
+  color: #6c63ff;
+
+  border: 1px solid #d9d6ff;
+}
+
+#signup-btn:hover {
+  background: #f6f4ff;
+}
+
+#auth-message {
+  min-height: 18px;
+
+  margin: 4px 0 0;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   DASHBOARD HEADER
+========================================= */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 22px;
+}
+
+.dashboard-header h1 {
+  margin: 2px 0 0;
+
+  font-size: 28px;
+}
+
+.welcome-text {
+  margin: 0;
+
+  color: #77758a;
+
+  font-size: 13px;
+}
+
+#logout-btn {
+  padding: 9px 16px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #e14b4b;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+#logout-btn:hover {
+  background: #fff3f3;
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.summary-section {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.balance-card,
+.small-summary-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  box-shadow: 0 6px 20px rgba(45, 35, 90, 0.07);
+}
+
+.balance-card {
+  background: #6c63ff;
+  color: #ffffff;
+}
+
+.summary-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.balance-card .summary-label {
+  opacity: 0.85;
+}
+
+.balance-value {
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.small-summary-card strong {
+  display: block;
+
+  font-size: 21px;
+}
+
+.income-card strong {
+  color: #249b68;
+}
+
+.expense-card strong {
+  color: #e25555;
+}
+
+
+/* =========================================
+   COMMON DASHBOARD CARD
+========================================= */
+
+.dashboard-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 22px;
+
+  margin-bottom: 16px;
+
+  box-shadow: 0 6px 20px rgba(45, 35, 90, 0.06);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 4px;
+
+  font-size: 17px;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: #858392;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   TRANSACTION FORM
+========================================= */
+
+#transaction-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #555361;
+}
+
+#transaction-form input,
+#transaction-form select {
+  width: 100%;
+
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dedde7;
+
+  border-radius: 10px;
+
+  background: #fafaff;
+
+  outline: none;
+
+  font-size: 14px;
+}
+
+#transaction-form input:focus,
+#transaction-form select:focus {
+  border-color: #6c63ff;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 99, 255, 0.08);
+}
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.primary-action {
+  width: 100%;
+
+  height: 46px;
+
+  margin-top: 2px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #6c63ff;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.primary-action:hover {
+  background: #574fd6;
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.compact-select {
+  height: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid #dedde7;
+
+  border-radius: 8px;
+
+  background: #fafaff;
+
+  color: #444250;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+
+/* =========================================
+   CHART
+========================================= */
+
+.chart-wrapper {
+  width: 100%;
+
+  max-width: 360px;
+
+  height: 280px;
+
+  margin: 0 auto;
+}
+
+#expenseChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* =========================================
+   BUDGET
+========================================= */
+
+#budget-form {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr auto;
+
+  gap: 9px;
+
+  margin-top: 12px;
+}
+
+#budget-form select,
+#budget-form input {
+  height: 42px;
+
+  padding: 0 11px;
+
+  border: 1px solid #dedde7;
+
+  border-radius: 9px;
+
+  background: #fafaff;
+
+  outline: none;
+
+  font-size: 13px;
+}
+
+#budget-form select:focus,
+#budget-form input:focus {
+  border-color: #6c63ff;
+}
+
+#budget-form button {
+  height: 42px;
+
+  padding: 0 15px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #6c63ff;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+#budget-form button:hover {
+  background: #574fd6;
+}
+
+#budget-status p {
+  margin: 5px 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   TRANSACTIONS
+========================================= */
+
 #transaction-list {
   list-style: none;
+
   padding: 0;
-  margin-top: 15px;
+
+  margin: 0;
 }
 
 #transaction-list li {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
-  background-color: #f9f9f9;
-  padding: 10px 15px;
-  border-radius: 6px;
+
+  gap: 12px;
+
+  padding: 13px 14px;
+
   margin-bottom: 8px;
-  font-size: 14px;
+
+  background: #f8f8fc;
+
+  border: 1px solid #f0eff6;
+
+  border-radius: 10px;
+
+  font-size: 13px;
 }
 
 #transaction-list li button {
-  background-color: #ff5c5c;
-  color: white;
+  flex-shrink: 0;
+
+  padding: 6px 10px;
+
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+
+  border-radius: 6px;
+
+  background: #ff5c5c;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
   cursor: pointer;
-  font-size: 12px;
 }
 
 #transaction-list li button:hover {
-  background-color: #e04545;
+  background: #e04545;
 }
 
-#budget-form{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  #auth-section {
+    margin-top: 6vh;
+
+    padding: 26px 21px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+
+  #logout-btn {
+    padding: 8px 11px;
+  }
+
+  .summary-section {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+  }
+
+  .balance-card {
+    grid-column: 1 / -1;
+  }
+
+  .balance-card,
+  .small-summary-card {
+    padding: 16px;
+  }
+
+  .balance-value {
+    font-size: 26px;
+  }
+
+  .small-summary-card strong {
+    font-size: 18px;
+  }
+
+  .dashboard-card {
+    padding: 17px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .compact-select {
+    max-width: 130px;
+  }
+
+  .chart-wrapper {
+    height: 240px;
+  }
+
+  #budget-form {
+    grid-template-columns: 1fr;
+  }
+
+  #budget-form button {
+    width: 100%;
+  }
+
 }
 
+/* =========================================
+   STEP 3 — FINAL UI POLISH
+========================================= */
+
+/* Smooth interaction */
+button,
+input,
+select {
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+/* Better selection */
+select {
+  cursor: pointer;
+}
+
+/* Prevent accidental text overflow */
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   BETTER DASHBOARD SPACING
+========================================= */
+
+#app-section {
+  padding-bottom: 8px;
+}
+
+.dashboard-card:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   EMPTY TRANSACTION STATE
+========================================= */
+
+#transaction-list:empty::before {
+  content: "No transactions yet";
+  display: block;
+
+  padding: 24px 12px;
+
+  text-align: center;
+
+  color: #9693a3;
+
+  font-size: 13px;
+
+  background: #fafafe;
+
+  border: 1px dashed #dddbe8;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   BETTER BUDGET STATUS
+========================================= */
+
+#budget-status {
+  margin-bottom: 4px;
+}
+
+#budget-status p {
+  padding: 9px 11px;
+
+  background: #f8f7ff;
+
+  border-radius: 8px;
+
+  color: #555361;
+}
+
+
+/* =========================================
+   BETTER TRANSACTION ROW
+========================================= */
+
+#transaction-list li {
+  min-height: 46px;
+}
+
+#transaction-list li button {
+  transition: 0.2s ease;
+}
+
+#transaction-list li button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BETTER BUTTON FEEDBACK
+========================================= */
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   FOCUS ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(108, 99, 255, 0.35);
+  outline-offset: 2px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 601px) and (max-width: 800px) {
+
+  .container {
+    max-width: 720px;
+  }
+
+  .summary-section {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  #app-section {
+    padding: 14px;
+  }
+
+  .dashboard-header {
+    gap: 8px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .welcome-text {
+    font-size: 12px;
+  }
+
+  #logout-btn {
+    font-size: 11px;
+    padding: 7px 9px;
+  }
+
+  .balance-card,
+  .small-summary-card {
+    padding: 14px;
+  }
+
+  .balance-value {
+    font-size: 23px;
+  }
+
+  .small-summary-card strong {
+    font-size: 16px;
+  }
+
+  .dashboard-card {
+    padding: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 15px;
+  }
+
+  .section-heading p {
+    font-size: 11px;
+  }
+
+  .compact-select {
+    max-width: 115px;
+    font-size: 11px;
+  }
+
+  .chart-wrapper {
+    height: 210px;
+  }
+
+}
+
+/* =========================================
+   STEP 6 — DUAL THEME
+========================================= */
+
+body {
+  --bg-color: #f5f3ff;
+  --card-color: #ffffff;
+  --text-color: #20202a;
+  --secondary-text: #77758a;
+  --input-bg: #fafaff;
+  --border-color: #dedde7;
+  --soft-bg: #f8f8fc;
+  --shadow-color: rgba(45, 35, 90, 0.07);
+
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+/* Header buttons */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+
+  background: var(--card-color);
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+
+/* Cards */
+
+#app-section,
+.dashboard-card,
+.small-summary-card {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+.dashboard-card,
+.small-summary-card {
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+
+/* Text */
+
+.dashboard-header h1,
+.section-heading h2 {
+  color: var(--text-color);
+}
+
+.welcome-text,
+.section-heading p {
+  color: var(--secondary-text);
+}
+
+
+/* Inputs */
+
+#transaction-form input,
+#transaction-form select,
+#budget-form input,
 #budget-form select,
-#budget-form input{
-  flex:1;
-  padding:8px;
-  border:1px solid #ccc;
-  border-radius:5px;
+.compact-select {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
 }
-#budget-form button{
-  background-color:#6c63ff;
-  color:white;
-  border:none;
-  padding:8px 15px;
-  border-radius:5px;
-  cursor:pointer;
+
+
+/* Transactions */
+
+#transaction-list li {
+  background: var(--soft-bg);
+  border-color: var(--border-color);
 }
-#budget-status p{
-  margin:5px 0 2px 0;
-  font-size:14px;
+
+
+/* Logout */
+
+#logout-btn {
+  background: var(--card-color);
 }
-#auth-section{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme {
+
+  --bg-color: #12121a;
+  --card-color: #1d1d27;
+
+  --text-color: #f4f3f8;
+  --secondary-text: #aaa7b8;
+
+  --input-bg: #272733;
+  --border-color: #393947;
+
+  --soft-bg: #252530;
+
+  --shadow-color: rgba(0, 0, 0, 0.25);
+
 }
-#auth-section input{
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:5px;
+
+
+/* Dark mode auth */
+
+body.dark-theme #auth-section {
+  background: var(--card-color);
+  color: var(--text-color);
 }
-#auth-section button{
-  padding:10px;
-  border:none;
-  border-radius:5px;
-  background-color:#6c63ff;
-  color:white;
-  cursor:pointer;
+
+body.dark-theme #auth-section h2 {
+  color: var(--text-color);
 }
-#logout-btn{
-  background-color:#ff5c5c;
-  color:white;
-  border:none;
-  padding:8px 15px;
-  border-radius:5px;
-  cursor:pointer;
-  margin-bottom:15px;
+
+body.dark-theme #auth-section input {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+
+/* Dark mode budget */
+
+body.dark-theme #budget-status p {
+  background: var(--soft-bg);
+  color: var(--text-color);
+}
+
+
+/* Dark mode logout */
+
+body.dark-theme #logout-btn {
+  color: #ff7070;
+}
+
+
+/* Dark mode theme button */
+
+body.dark-theme #theme-toggle {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+
+/* Smooth theme transition */
+
+body,
+#auth-section,
+#app-section,
+.dashboard-card,
+.small-summary-card,
+#theme-toggle,
+#logout-btn,
+#transaction-list li,
+#transaction-form input,
+#transaction-form select,
+#budget-form input,
+#budget-form select,
+.compact-select {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  #theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
 }

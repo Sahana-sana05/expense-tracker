@@ -2,73 +2,285 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Tracker</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <div class="container">
+
+    <!-- ================= AUTH ================= -->
+
     <div id="auth-section">
-      <h2>Login /Signup</h2>
-      <input type="email" id="auth-email" placeholder="Email" required>
-      <input type="password" id="auth-password" placeholder="Password" required>
-      <button id="signup-btn">Signup</button>
-      <button id="login-btn">Login</button>
+
+      <div class="auth-icon">₹</div>
+
+      <h2>Expense Tracker</h2>
+      <p class="auth-subtitle">Manage your money smarter</p>
+
+      <label for="auth-email">Email</label>
+      <input
+        type="email"
+        id="auth-email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="auth-password">Password</label>
+      <input
+        type="password"
+        id="auth-password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button id="login-btn" class="auth-primary-btn">Login</button>
+      <button id="signup-btn" class="auth-secondary-btn">Create Account</button>
+
       <p id="auth-message"></p>
+
     </div>
-    <div id="app-section" style="Display:none;">
-      <button id="logout-btn">Logout</button>
-      
-      <h1>My Expense Tracker</h1>
-      <div class="balance-summary">
-        <p>Balance: ₹<span id="balance">0</span></p>
-        <p>Income: ₹<span id="total-income">0</span></p>
-        <p>Expense: ₹<span id="total-expense">0</span></p>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div id="app-section" style="display:none;">
+
+      <!-- Header -->
+
+      <div class="dashboard-header">
+
+        <div>
+          <p class="welcome-text">Welcome back 👋</p>
+          <h1>My Expense Tracker</h1>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+          <button id="logout-btn">Logout</button>
+        </div>
       </div>
-      <form id="transaction-form">
-        <input type="text" id="title" placeholder="Enter title(eg. Lunch)" required>
-        <input type="number" id="amount" placeholder="Enter amount" required>
-        <select id="type">
-          <option value="expense">Expense</option>
-          <option value="income">Income</option>
-        </select>
-        <select id="category">
-          <option value="Food">Food</option>
-          <option value="Travel">Travel</option>
-          <option value="Bills">Bills</option>
-          <option value="Shopping">Shopping</option>
-          <option value="Salary">Salary</option>
-          <option value="Other">Other</option>
-        </select>
-        <button type="submit">Add Transaction</button>  
-      </form>
-      <select id="filter-category">
-        <option value="All">All Categories</option>
-        <option value="Food">Food</option>
-        <option value="Travel">Travel</option>
-        <option value="Bills">Bills</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Salary">Salary</option>
-        <option value="Other">Other</option>
-      </select>
-      <canvas id="expenseChart" width="400" height="400"></canvas>
-      <div id="budget-status"></div>
-      <form id="budget-form">
-        <select id="budget-category">
-          <option value="Food">Food</option>
-          <option value="Travel">Travel</option>
-          <option value="Bills">Bills</option>
-          <option value="Shopping">Shopping</option>
-          <option value="Salary">Salary</option>
-          <option value="Other">Other</option>
-        </select>
-        <input type="number" id="budget-limit" placeholder="Enter budget limit" required>
-        <button type="submit">Set Budget</button>
-      </form>
-      <h3>Transactions</h3>
-      <ul id="transaction-list"></ul> 
+
+
+      <!-- Balance Summary -->
+
+      <section class="summary-section">
+
+        <div class="balance-card">
+
+          <span class="summary-label">Total Balance</span>
+
+          <div class="balance-value">
+            ₹<span id="balance">0</span>
+          </div>
+
+        </div>
+
+
+        <div class="small-summary-card income-card">
+
+          <span class="summary-label">Income</span>
+
+          <strong>
+            ₹<span id="total-income">0</span>
+          </strong>
+
+        </div>
+
+
+        <div class="small-summary-card expense-card">
+
+          <span class="summary-label">Expenses</span>
+
+          <strong>
+            ₹<span id="total-expense">0</span>
+          </strong>
+
+        </div>
+
+      </section>
+
+
+      <!-- Add Transaction -->
+
+      <section class="dashboard-card">
+
+        <div class="section-heading">
+          <div>
+            <h2>Add Transaction</h2>
+            <p>Record your income or expenses</p>
+          </div>
+        </div>
+
+        <form id="transaction-form">
+
+          <div class="form-group">
+            <label for="title">Title</label>
+
+            <input
+              type="text"
+              id="title"
+              placeholder="Eg. Lunch"
+              required
+            >
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="amount">Amount</label>
+
+              <input
+                type="number"
+                id="amount"
+                placeholder="₹ 0"
+                required
+              >
+            </div>
+
+
+            <div class="form-group">
+              <label for="type">Type</label>
+
+              <select id="type">
+
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+
+              </select>
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="category">Category</label>
+
+            <select id="category">
+
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Bills">Bills</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Salary">Salary</option>
+              <option value="Other">Other</option>
+
+            </select>
+
+          </div>
+
+
+          <button type="submit" class="primary-action">
+            + Add Transaction
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <!-- Spending Overview -->
+
+      <section class="dashboard-card">
+
+        <div class="section-heading">
+
+          <div>
+            <h2>Spending Overview</h2>
+            <p>See where your money goes</p>
+          </div>
+
+          <select id="filter-category" class="compact-select">
+
+            <option value="All">All Categories</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Salary">Salary</option>
+            <option value="Other">Other</option>
+
+          </select>
+
+        </div>
+
+        <div class="chart-wrapper">
+          <canvas id="expenseChart"></canvas>
+        </div>
+
+      </section>
+
+
+      <!-- Budget -->
+
+      <section class="dashboard-card">
+
+        <div class="section-heading">
+
+          <div>
+            <h2>Budget</h2>
+            <p>Set spending limits for categories</p>
+          </div>
+
+        </div>
+
+        <div id="budget-status"></div>
+
+        <form id="budget-form">
+
+          <select id="budget-category">
+
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Salary">Salary</option>
+            <option value="Other">Other</option>
+
+          </select>
+
+          <input
+            type="number"
+            id="budget-limit"
+            placeholder="Budget limit"
+            required
+          >
+
+          <button type="submit">Set Budget</button>
+
+        </form>
+
+      </section>
+
+
+      <!-- Transactions -->
+
+      <section class="dashboard-card transactions-card">
+
+        <div class="section-heading">
+
+          <div>
+            <h2>Recent Transactions</h2>
+            <p>Your latest activity</p>
+          </div>
+
+        </div>
+
+        <ul id="transaction-list"></ul>
+
+      </section>
+
     </div>
+
   </div>
+
   <script src="script.js"></script>
 
 </body>
