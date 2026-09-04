@@ -13,8 +13,20 @@ const Budget=require('./Budget');
 const app = express();
 
 app.use(express.json());
+const allowedOrigins = [
+    'https://expense-tracker-web-yth4.onrender.com',
+    'http://localhost:5500',
+    'http://127.0.0.1:5500'
+];
+
 app.use(cors({
-    origin: 'https://expense-tracker-web-yth4.onrender.com'
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 
 const PORT=3000;
