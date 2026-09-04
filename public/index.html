@@ -13,7 +13,7 @@
 
   <div class="container">
 
-    <!-- AUTH -->
+    <!-- ================= AUTH ================= -->
 
     <div id="auth-section">
 
@@ -46,9 +46,11 @@
     </div>
 
 
-    <!-- DASHBOARD -->
+    <!-- ================= DASHBOARD ================= -->
 
     <div id="app-section" style="display:none;">
+
+      <!-- Header -->
 
       <div class="dashboard-header">
 
@@ -56,42 +58,54 @@
           <p class="welcome-text">Welcome back 👋</p>
           <h1>My Expense Tracker</h1>
         </div>
+        <div class="header-actions">
+          <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
 
-        <button id="logout-btn">Logout</button>
-
+          <button id="logout-btn">Logout</button>
+        </div>
       </div>
 
+
+      <!-- Balance Summary -->
 
       <section class="summary-section">
 
         <div class="balance-card">
+
           <span class="summary-label">Total Balance</span>
 
           <div class="balance-value">
             ₹<span id="balance">0</span>
           </div>
+
         </div>
 
+
         <div class="small-summary-card income-card">
+
           <span class="summary-label">Income</span>
 
           <strong>
             ₹<span id="total-income">0</span>
           </strong>
+
         </div>
 
+
         <div class="small-summary-card expense-card">
+
           <span class="summary-label">Expenses</span>
 
           <strong>
             ₹<span id="total-expense">0</span>
           </strong>
+
         </div>
 
       </section>
 
 
-      <!-- ADD TRANSACTION -->
+      <!-- Add Transaction -->
 
       <section class="dashboard-card">
 
@@ -115,6 +129,7 @@
             >
           </div>
 
+
           <div class="form-row">
 
             <div class="form-group">
@@ -128,31 +143,38 @@
               >
             </div>
 
+
             <div class="form-group">
               <label for="type">Type</label>
 
               <select id="type">
+
                 <option value="expense">Expense</option>
                 <option value="income">Income</option>
+
               </select>
             </div>
 
           </div>
+
 
           <div class="form-group">
 
             <label for="category">Category</label>
 
             <select id="category">
+
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Bills">Bills</option>
               <option value="Shopping">Shopping</option>
               <option value="Salary">Salary</option>
               <option value="Other">Other</option>
+
             </select>
 
           </div>
+
 
           <button type="submit" class="primary-action">
             + Add Transaction
@@ -163,7 +185,7 @@
       </section>
 
 
-      <!-- SPENDING -->
+      <!-- Spending Overview -->
 
       <section class="dashboard-card">
 
@@ -175,6 +197,7 @@
           </div>
 
           <select id="filter-category" class="compact-select">
+
             <option value="All">All Categories</option>
             <option value="Food">Food</option>
             <option value="Travel">Travel</option>
@@ -182,6 +205,7 @@
             <option value="Shopping">Shopping</option>
             <option value="Salary">Salary</option>
             <option value="Other">Other</option>
+
           </select>
 
         </div>
@@ -193,7 +217,7 @@
       </section>
 
 
-      <!-- BUDGET -->
+      <!-- Budget -->
 
       <section class="dashboard-card">
 
@@ -211,12 +235,14 @@
         <form id="budget-form">
 
           <select id="budget-category">
+
             <option value="Food">Food</option>
             <option value="Travel">Travel</option>
             <option value="Bills">Bills</option>
             <option value="Shopping">Shopping</option>
             <option value="Salary">Salary</option>
             <option value="Other">Other</option>
+
           </select>
 
           <input
@@ -233,7 +259,7 @@
       </section>
 
 
-      <!-- TRANSACTIONS -->
+      <!-- Transactions -->
 
       <section class="dashboard-card transactions-card">
 

@@ -315,3 +315,40 @@ if(savedToken){
   loadBudgets();
 }
 
+/* =========================================
+   THEME TOGGLE
+========================================= */
+
+const themeToggle = document.getElementById('theme-toggle');
+
+const savedTheme = localStorage.getItem('expenseTrackerTheme');
+
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+
+    if (themeToggle) {
+        themeToggle.textContent = '☀️';
+    }
+}
+
+if (themeToggle) {
+
+    themeToggle.addEventListener('click', function () {
+
+        document.body.classList.toggle('dark-theme');
+
+        const isDark =
+            document.body.classList.contains('dark-theme');
+
+        localStorage.setItem(
+            'expenseTrackerTheme',
+            isDark ? 'dark' : 'light'
+        );
+
+        themeToggle.textContent =
+            isDark ? '☀️' : '🌙';
+
+    });
+
+}
+

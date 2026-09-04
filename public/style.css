@@ -864,3 +864,201 @@ select:focus-visible {
   }
 
 }
+
+/* =========================================
+   STEP 6 — DUAL THEME
+========================================= */
+
+body {
+  --bg-color: #f5f3ff;
+  --card-color: #ffffff;
+  --text-color: #20202a;
+  --secondary-text: #77758a;
+  --input-bg: #fafaff;
+  --border-color: #dedde7;
+  --soft-bg: #f8f8fc;
+  --shadow-color: rgba(45, 35, 90, 0.07);
+
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+/* Header buttons */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+
+  background: var(--card-color);
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+
+/* Cards */
+
+#app-section,
+.dashboard-card,
+.small-summary-card {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+.dashboard-card,
+.small-summary-card {
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+
+/* Text */
+
+.dashboard-header h1,
+.section-heading h2 {
+  color: var(--text-color);
+}
+
+.welcome-text,
+.section-heading p {
+  color: var(--secondary-text);
+}
+
+
+/* Inputs */
+
+#transaction-form input,
+#transaction-form select,
+#budget-form input,
+#budget-form select,
+.compact-select {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+
+/* Transactions */
+
+#transaction-list li {
+  background: var(--soft-bg);
+  border-color: var(--border-color);
+}
+
+
+/* Logout */
+
+#logout-btn {
+  background: var(--card-color);
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme {
+
+  --bg-color: #12121a;
+  --card-color: #1d1d27;
+
+  --text-color: #f4f3f8;
+  --secondary-text: #aaa7b8;
+
+  --input-bg: #272733;
+  --border-color: #393947;
+
+  --soft-bg: #252530;
+
+  --shadow-color: rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* Dark mode auth */
+
+body.dark-theme #auth-section {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+body.dark-theme #auth-section h2 {
+  color: var(--text-color);
+}
+
+body.dark-theme #auth-section input {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+
+/* Dark mode budget */
+
+body.dark-theme #budget-status p {
+  background: var(--soft-bg);
+  color: var(--text-color);
+}
+
+
+/* Dark mode logout */
+
+body.dark-theme #logout-btn {
+  color: #ff7070;
+}
+
+
+/* Dark mode theme button */
+
+body.dark-theme #theme-toggle {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+
+/* Smooth theme transition */
+
+body,
+#auth-section,
+#app-section,
+.dashboard-card,
+.small-summary-card,
+#theme-toggle,
+#logout-btn,
+#transaction-list li,
+#transaction-form input,
+#transaction-form select,
+#budget-form input,
+#budget-form select,
+.compact-select {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  #theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+}
